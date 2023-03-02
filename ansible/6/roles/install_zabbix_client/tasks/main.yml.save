@@ -1,0 +1,23 @@
+---
+# tasks file for nginx
+- name: Install zabbix agent
+  apt: name=zabbix-agent state=latest
+
+
+- name: Remove default html file  
+  file:
+   path: /var/www/html/index.nginx-debian.html
+   state: absent
+
+
+- name: Copy conf file for Web servers
+  copy: src={{ item }} dest={{ destin_nginx_conf }} mode=0555
+  loop:
+    - "default"
+  notify:
+    - Restart nginx
+
+
+- name: Start zabbix agent and enabled
+  service: name=nginx state=started enabled=yes
+

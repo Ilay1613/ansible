@@ -1,0 +1,4 @@
+[servers]
+server1 ansible_host=158.160.42.24 ansible_user=irishman ansible_ssh_private_key_file=/home/irishman/.ssh/id_rsa
+server2 ansible_host=51.250.87.59  ansible_user=irishman ansible_ssh_private_key_file=/home/irishman/.ssh/id_rsa
+

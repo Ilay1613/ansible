@@ -1,0 +1,3 @@
+---
+# defaults file for install_zabbix_client
+destin_folder: /etc/zabbix

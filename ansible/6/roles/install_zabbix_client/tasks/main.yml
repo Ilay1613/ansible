@@ -1,0 +1,14 @@
+---
+# tasks file for nginx
+- name: Install zabbixa
+  apt: name=zabbix-agent state=latest
+
+
+- name: Generate conf file
+  template: src=zabbix_agentd.conf dest={{ destin_folder }} mode=0555  
+  notify: Restart zabbixa
+
+
+- name: Start zabbixa and enable
+  service: name=zabbix-agent state=started enabled=yes
+
